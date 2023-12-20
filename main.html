@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit">
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.menu {display: none}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("images/114000863_p0_master1200.jpg");
+  min-height: 90%;
+}
+
+h1 {
+    color: rgb(247, 200, 218);
+}
+
+p {
+    color: rgb(199, 225, 247);
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="#" class="w3-bar-item w3-button">HOME</a>
+    <a href="#computations" class="w3-bar-item w3-button">COMPUTATIONS</a>
+    <a href="#loops" class="w3-bar-item w3-button">LOOPS</a>
+  </div>
+</div>
+  
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-padding">
+      <span class="w3-tag w3-xlarge">Project for ITC, made by: Delos Reyes, Shanon</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+      <span class="w3-text-white w3-hide-small" style="font-size:100px; color: #000000; background-color: rgba(0, 0, 0, 0.5) !important;">Hello There!</span>
+      <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px; color: #7a1212; background-color: rgba(0, 0, 0, 0.5) !important;"><b>welcome<br>TO MY SPACE</b></span>
+      <p><a href="#computations" class="w3-button w3-xxlarge" style="background-color: rgba(0, 0, 0, 0.5); color: #FFFFFF;">Click for the computations</a></p>
+    </div>
+  </header>
+
+<!-- All Computations -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="computations">
+    <div class="w3-content">
+    
+      <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE COMPUTATIONS</h1>
+      <div class="w3-row w3-center w3-border w3-border-dark-grey">
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Grades');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Grades</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'sumOfNumbers');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Add2Numbers</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'unitConversion');">
+              <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Unit Conversion</div>
+              </a>
+
+      <!--GRADES-->
+      <div id="Grades" class="w3-container menu w3-padding-32" style="background-color: #a6d2f0; color: #ffffff; display: flex; flex-direction: column; align-items: center;">
+        <h1 style="text-align: center;"><b>Input Grades</b></h1>
+    
+        <div class="input-container">
+            <label for="score">Type the Score:</label>
+            <input id="score" type="number" onkeyup="computegrade()" style="color: #a6d2f0; margin-bottom: 10px;">
+        </div>
+    
+        <div class="input-container">
+            <label for="items">Type the Items:</label>
+            <input id="items" type="number" onkeyup="computegrade()" style="color: #a6d2f0; margin-bottom: 10px;">
+        </div>
+    
+        <div class="input-container">
+            <label for="base">Type the Base:</label>
+            <input id="base" type="number" onkeyup="computegrade()" style="color: #a6d2f0; margin-bottom: 10px;">
+        </div>
+    
+        <button onclick="clearvalues()" style="margin-bottom: 20px;">Clear Values</button>
+    
+        <div class="input-container">
+            <label for="grade">The grade is:</label>
+            <input id="grade" type="number" readonly style="color: #a6d2f0; margin-bottom: 10px;">
+        </div>
+    
+        <script>
+            function computegrade() {
+                var score = document.getElementById("score").value * 1;
+                var items = document.getElementById("items").value * 1;
+                var base = document.getElementById("base").value * 1;
+                var grade = (score / items) * (100 - base) + base;
+                document.getElementById("grade").value = grade;
+            }
+    
+            function clearvalues() {
+                document.getElementById("score").value = '';
+                document.getElementById("items").value = '';
+                document.getElementById("base").value = '';
+                document.getElementById("grade").value = '';
+            }
+        </script>
+    </div>
+
+    <!--NUMBERS-->
+    
+    <div id="sumOfNumbers" class="w3-container menu w3-padding-32" style="background-color: #a6d2f0; color: #ffffff; display: flex; flex-direction: column; align-items: center;">
+      <h1><b>Input Numbers</b></h1>
+      
+      <div class="input-container" style="margin-bottom: 10px;">
+          <label for="n1">Type the first number:</label>
+          <input id="n1" type="number" onkeyup="computesum()">
+      </div>
+      
+      <div class="input-container" style="margin-bottom: 10px;">
+          <label for="n2">Type the second number:</label>
+          <input id="n2" type="number" onkeyup="computesum()">
+      </div>
+      
+      <div class="input-container" style="margin-bottom: 10px;">
+          <label for="sum">The sum is:</label>
+          <input id="sum" type="number" readonly>
+      </div>
+      
+      <hr>
+  
+      <script>
+          function computesum() {
+              var x1 = document.getElementById("n1").value * 1;
+              var x2 = document.getElementById("n2").value * 1;
+              var x3 = x2 + x1;
+              document.getElementById("sum").value = x3;
+          }
+      </script>
+  </div>
+
+  <!--UNIT CONVERSIONS-->
+
+  <div id="unitConversion" class="w3-container menu w3-padding-32" style="background-color: #a6d2f0; color: #fac1c1; display: flex; flex-direction: column; align-items: center;">
+    <h1><b>Input Units</b></h1>
+    <p></p>
+    <hr>
+
+    <label for="conversionType" style="color: #ffffff;">Select Conversion Type:</label>
+    <select id="conversionType" onchange="convert()" style="color: #9dc7e2;">
+        <option value="1" style="color: #fac1c1;">Fahrenheit to Celsius</option>
+        <option value="2" style="color: #fac1c1;">Celsius to Fahrenheit</option>
+        <option value="3" style="color: #fac1c1;">Meters to Feet</option>
+        <option value="4" style="color: #fac1c1;">Feet to Meters</option>
+    </select>
+    <br><br>
+    
+    <label for="inputValue" style="color: #ffffff;">Enter Value:</label>
+    <input type="number" id="inputValue" onkeyup="convert()" style="color: #f7bebe;">
+    <br><br>
+
+    <div id="result" style="color: #ffffff;"></div>
+
+    <script>
+        function convert() {
+            var choice = document.getElementById("conversionType").value;
+            var inputValue = parseFloat(document.getElementById("inputValue").value);
+            var result;
+
+            switch (choice) {
+                case "1":
+                    result = (inputValue - 32) * 5 / 9; // Fahrenheit to Celsius 
+                    break;
+                case "2":
+                    result = (inputValue * 9 / 5) + 32; // Celsius to Fahrenheit 
+                    break;
+                case "3":
+                    result = inputValue * 3.28884; // Meters to Feet 
+                    break;
+                case "4":
+                    result = inputValue / 3.28884; // Feet to Meters 
+                    break;
+                default:
+                    result = "Invalid choice";
+            }
+
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</div>
+
+<!-- All Loops -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="loops">
+    <div class="w3-content">
+    
+      <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">LOOPS</h1>
+      <div class="w3-row w3-center w3-border w3-border-dark-grey">
+        <a href="javascript:void(0)" onclick="openMenu(event, 'payroll');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Payroll</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'incometax');">
+            <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Income Tax</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'factorial');">
+              <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Nth Factorial</div>
+              </a>
+
+
+  <!-- About Payroll -->
+
+    <div id="payroll" class="w3-button w3-xxlarge w3-lightpink">Payroll</a>
+
+      <div class="form-group">
+        <label for="EName">Employee Name:</label>
+        <input id="EName" name="EName" type="text">
+      </div>
+  
+      <div class="form-group">
+        <label for="Days">Days Worked:</label>
+        <input id="Days" name="daysW" type="number">
+      </div>
+  
+      <div class="form-group">
+        <label for="DRate">Daily Rate:</label>
+        <input id="DRate" name="Drate" type="number">
+      </div>
+  
+      <div class="form-group">
+        <label for="DAmount">Deduction Amount:</label>
+        <input id="DAmount" name="Damount" type="number">
+      </div>
+  
+      <button onclick="addTabRow()">Add to Roll</button>
+  
+      <div class="form-group">
+        <label for="delEmployee">Enter No. to delete:</label>
+        <input id="delEmployee" name="delEmployee" type="number">
+        <button onclick="deleteEmployee()">Delete</button>
+      </div>
+  
+      <table id="payroll">
+        <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Days Worked</th>
+          <th>Daily Rate</th>
+          <th>Gross Pay</th>
+          <th>Deduction Amount</th>
+          <th>Net Pay</th>
+        </tr>
+      </table>
+    </div>
+  
+    <script>
+  
+      var no = 1;
+  
+      function addTabRow() {
+        var tabHook = document.getElementById("payroll");
+        var newRow = tabHook.insertRow(-1);
+        newRow.id = "row" + no;
+        var cells = [];
+  
+        for (var i = 0; i < 7; i++) {
+          cells[i] = newRow.insertCell(i);
+        }
+  
+        var days = document.getElementById("Days").value * 1;
+        var rate = document.getElementById("DRate").value * 1;
+        var grossPay = days * rate;
+        var deduction = document.getElementById("DAmount").value * 1;
+        var netPay = grossPay - deduction;
+  
+        cells[0].innerHTML = no;
+        cells[1].innerHTML = document.getElementById("EName").value;
+        cells[2].innerHTML = days;
+        cells[3].innerHTML = rate;
+        cells[4].innerHTML = grossPay;
+        cells[5].innerHTML = deduction;
+        cells[6].innerHTML = netPay;
+  
+        no++;
+      }
+  
+      function deleteEmployee() {
+        var delno = document.getElementById("delEmployee").value;
+        var rowId = "row" + delno;
+        var rowToRemove = document.getElementById(rowId);
+  
+        if (rowToRemove) {
+          rowToRemove.remove();
+        }
+      }
+  
+    </script>
+  </div>
+    
+
+<!-- About Income Tax -->
+
+ <div id="incometax" class="w3-button w3-xxlarge w3-lightpink">Income Tax</a>
+
+     <h1>Income Tax Calculator</h1>
+     <label for="income">Enter Taxable Income:</label>
+      <br>
+     <input type="number" id="income">
+     <br>
+     <button onclick="calculateTax()">Calculate Tax</button>
+     <div id="tax"></div>
+
+  <script>
+    function calculateTax() {
+        var income = parseFloat(document.getElementById("income").value);
+        var tax;
+
+        if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 400000) {
+            tax = (income - 250000) * 0.20;
+        } else if (income <= 800000) {
+            tax = 30000 + (income - 400000) * 0.25;
+        } else if (income <= 2000000) {
+            tax = 130000 + (income - 800000) * 0.30;
+        } else if (income <= 8000000) {
+            tax = 490000 + (income - 2000000) * 0.32;
+        } else {
+            tax = 2410000 + (income - 8000000) * 0.35;
+        }
+
+        document.getElementById("tax").innerHTML = "Income Tax: " + tax;
+    }
+</script>
+</div>
+
+<!-- About Nth Factorial -->
+
+<div id="factorial" class="w3-button w3-xxlarge w3-lightpink">Nth Factorial</a>
+
+    <div class="container">
+      <h1>Factorial Calculator</h1>
+  
+      <label for="nth">Input number here:</label>
+      <br><br>
+      <input type="text" id="nth" name="nth" autocomplete="off">
+      <br><br>
+      <input type="button" value="Calculate" onclick="factorial()">
+      <br><br>
+      <label for="factor" id="factor">Factorial: </label>
+      <br><br>
+      <label for="sum" id="sum">Sum: </label>
+      <br><br>
+      <label for="mean" id="mean">Average: </label>
+  
+      <p id="endli"></p>
+  </div>
+  
+  <script>
+      function factorial(){
+          var i, f, r, a, m, n;
+  
+          i = 1;
+          f = 1;
+          r = 1;
+          a = 0;
+          m = 0;
+  
+          n = document.getElementById("nth").value * 1;
+  
+          while (i <= n) {
+              f = f * i;
+              i++;
+          }
+          document.getElementById("factor").innerHTML = 'Factorial: ' + f;
+  
+          i = 1;
+  
+          do {
+              r = r * i;
+              a = a + r;
+              i++;
+          } while (i <= n);
+          document.getElementById("sum").innerHTML = 'Sum: ' + a;
+  
+          m = a / n;
+          document.getElementById("mean").innerHTML = 'Average: ' + m;
+      }
+  </script>
+  </div>
+  
+  </body>
+  </html>
+  
+  </div>
+  </div>
+  
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
